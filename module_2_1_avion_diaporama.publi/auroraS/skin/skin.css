@@ -1,0 +1,24 @@
+/* Skin-specific CSS code */
+
+
+:root{
+  --fontStyle: sans-serif;
+	--fontSize: 1.1em;
+  --borderGradient: 0%;
+  --borderWidth: 2px;
+	--contentBG: white;
+	--contentFG: black;
+	--contentEmp: #434e52;
+	--accentDarkBG: #434e52;
+	--accentDarkBGalpha: #434e52aa;
+	--accentDarkFG: white;
+	--accentLightBG: #e0ecec;
+	--accentLightBGalpha: #e0ecec60;
+	--accentLightFG: black;
+  --pBkOthers: #507c7c;
+  --pBkWarning: #D51921;
+  --pBkBasic: #9F590E;
+	--footerBG: #f2f2f2;
+	--footerFG: black;
+	--menuWidth: 300px;
+}

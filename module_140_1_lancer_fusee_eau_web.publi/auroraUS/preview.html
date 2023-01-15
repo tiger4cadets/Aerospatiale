@@ -1,0 +1,618 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="no-store, no-cache" http-equiv="Cache-Control">
+<title>Simulateur de LMS SCORM</title>
+<style type="text/css">
+		html{
+			overflow-y:hidden;
+		}
+		body{
+			margin:0px;
+			height:100%;
+			font: 14px Verdana,Tahoma, Arial, Sans-serif;
+		}
+		
+		.display_off{
+			display:none;
+		}
+		#scormCo{
+			position:absolute;
+			right:0;
+			height:100%;
+			background-color: silver;
+		}
+		#btnScormPnl {
+			position: absolute;
+			z-index: 2;
+			text-decoration: none;
+			background: #444;
+			color: #ffffff;
+			padding: 10px 5px;
+			border-radius: 0 0 7px;
+			opacity: 0.5;
+		}
+		#btnScormPnl:hover {
+			background: #777;
+			opacity: 1;
+		}
+		.btnCls,
+		.pnl_on {
+			left: 30%;
+		}
+		.btnOpn,
+		.pnl_off {
+			left: 0;
+		}
+		
+		.dispDataChildren{
+			border-left: 1px solid gray;
+			padding-left : 3px;
+			margin-left : 8px;
+		}
+		.dispDataNone{
+			font-style: italic;
+			color: gray;
+			font-size: .8em;
+		}
+		.dispDataText{
+			margin: 0px;
+			color: #00017D;
+		}
+		
+		ul.prv{ /* Menu root div */
+			list-style: none;
+			padding: 0em;
+			margin: 5px;
+			clear: both;
+		}
+		
+		li.prv_li{
+			padding: 2px 0px 0px 0px;
+		}
+		li.prv_li a,
+		li.prv_li a:visited {
+			text-decoration: none;
+			color:#222222;
+		}
+		li.prv_li a:hover{
+			text-decoration: none;
+			color:#EEEEEE;
+			background-color:#BBBBBB;
+		}
+		.prv_selected{
+			color:#EEEEEE !important;
+			background-color:#999999 !important;
+		}
+		
+		ul.prv_list{
+			margin-left:1em;
+			padding:0px;
+			list-style: none;
+			padding: 0px 0px 0px 10px;
+			font-weight: normal;
+		}
+		
+		li.prv_folder{
+			color:#333333;
+			font-weight:bold;
+		}
+		
+		.scorm_btn, .scorm_btnOn {
+			border:#DDDDDD outset 1px;
+			color:#00008B;
+			padding:2px;
+			text-decoration: none;
+			margin:5px;
+			background-color:#CCCCCC;
+			font-familly:Verdana;
+			font-size:0.8em;
+			white-space: nowrap;
+			line-height: 2em;
+		}
+		.scorm_btnOn {
+			border:#DDDDDD inset 1px;
+			background-color:#EEEEEE;
+		}
+</style>
+<script type="text/javascript">
+	    //
+		function scOnLoad(){
+			xSetNoSco();
+			if(window.location.protocol=="file:") alert("Ce simulateur ne peut pas fonctionner correctement en local.\nVeuillez l\'utiliser depuis un serveur web.");
+		}
+
+		function scOnUnload(){
+		
+		}
+		
+		function sc$(pId) {
+			return document.getElementById(pId);
+		}
+
+		var fApiSelected = "";
+		var fLastItemSelected = null;
+		function showItem(pUrl, pItemInTree, pEvent){
+			pEvent = pEvent || window.event;
+			if(fLastItemSelected) fLastItemSelected.className="";
+			fLastItemSelected = pItemInTree;
+			if(pItemInTree) pItemInTree.className="prv_selected";
+			xLoadSCO(pUrl, pEvent.shiftKey);
+		}
+		
+		function xToggleScormPnl(pState) {
+			var vBtnPnl = document.getElementById("btnScormPnl"),
+				vScormPnl = document.getElementById("scormPnl"),
+				vScormCo = document.getElementById("scormCo");
+			if (typeof pState == "undefined") pState = !this.fPnlShow;
+			if (pState){
+				vScormPnl.className = "display_off";				
+				vScormCo.className = "pnl_off";				
+				vBtnPnl.lastChild.innerHTML = "&gt;";
+				vBtnPnl.title = "Afficher le panneau SCORM";
+				vBtnPnl.className = "btnOpn";
+
+			} else {
+				vScormPnl.className = "display_on";
+				vScormCo.className = "pnl_on";
+				vBtnPnl.lastChild.innerHTML = "&lt;";
+				vBtnPnl.title = "Masquer le panneau SCORM";
+				vBtnPnl.className = "btnCls";
+			}
+			this.fPnlShow = pState;
+		}
+				
+		function showCurrentData() {
+			var vData;
+			if(API) {
+				vData = API._Fields;
+			} else if(API_1484_11) {
+				vData = API_1484_11._Fields;
+			} else {
+				alert("Aucun contenu SCORM n\'est actuellement en cours d\'exécution.");
+				return;
+			}
+			var vFrm = sc$("displayDataFrm");
+			vFrm.style.display = "";
+			var vCt = sc$("displayDataCt");
+			while(vCt.lastChild) vCt.removeChild(vCt.lastChild);
+			xPublishData(vCt, vData);
+			if(!vCt.hasChildNodes()) vCt.innerHTML = '<span class="dispDataNone">Aucune donnée enregistrée<\/span>';
+		}
+		function xPublishData(pParentNode, pObj) {
+			if( pObj != null &&  typeof pObj == "object") {
+				for (var vK in pObj) {
+					var vContainer = pParentNode.appendChild(document.createElement("div"));
+					vContainer.className = "dispDataCont";
+					var vTitle = vContainer.appendChild(document.createElement("div"));
+					vTitle.appendChild(document.createTextNode(vK));
+					vTitle.className = "dispDataTitle";
+					var vCh = vContainer.appendChild(document.createElement("div"));
+					vCh.className = "dispDataChildren";
+					xPublishData(vCh, pObj[vK]);
+				}
+			} else {
+				var vPre = pParentNode.appendChild(document.createElement("pre"));
+				vPre.className = "dispDataText";
+				//pb affichage sur IE si text vide. Donc " " si null ou chaine vide, mais pas si number 0 ou false.
+				if(pObj==null || pObj+""=="") pObj = " ";
+				vPre.appendChild(document.createTextNode(pObj));
+			}
+		}
+		
+		function xReset(){
+			var vSubTitleDiv = sc$("scoSubTitle");
+			while(vSubTitleDiv.lastChild) vSubTitleDiv.removeChild(vSubTitleDiv.lastChild);
+			var vCt = sc$("displayDataCt");
+			while(vCt.lastChild) vCt.removeChild(vCt.lastChild);
+			if(fLastItemSelected) fLastItemSelected.className="";
+			fLastItemSelected = null;
+			sc$("btnNoSco").className = "scorm_btn";
+			sc$("btnSco12").className = "scorm_btn";
+			sc$("btnSco2k4").className = "scorm_btn";
+			if (typeof fPopupWindow != "undefined") fPopupWindow.close();
+			xLoadSCO("", false);
+		}
+		
+		function xLoadSCO(pUrl, pPopup) {
+			var vFrmWin = sc$("mainFrame");
+			if (pPopup){
+				xUnloadSCO();
+				if (pUrl) {
+					vFrmWin.src = "about:blank";
+					if (typeof fPopupWindow != "undefined") fPopupWindow.close();
+					fPopupWindow = window.open(pUrl, 'PopupWindow', 'resizable,scrollbars');
+				}
+			} else {
+				var vFrmWinFra = window.frames["mainFrame"]; // sinon les fonctions unload ne marchent pas.
+				vFrmWin.src = pUrl || "about:blank";
+				//Chargement asynchrone du nouveau contexte (après le onunload).
+				if(vFrmWinFra.addEventListener) {
+					vFrmWinFra.addEventListener("unload", xUnloadSCO, false);
+				} else if(vFrmWinFra.attachEvent){
+					vFrmWinFra.attachEvent("onunload", xUnloadSCO);
+				}
+			}
+		}
+		
+		//Chargement asynchrone du nouveau contexte (après le onunload).
+		function xUnloadSCO(pEvent){
+			switch (fApiSelected) {
+				case "scorm2k4" : {
+					API = null;
+					API_1484_11 = fLastItemSelected ? new Imp_API_1484_11(fLastItemSelected) : null;
+					break;
+				}
+				case "scorm12" : {
+					API = fLastItemSelected ? new Imp_API12(fLastItemSelected) : null;
+					API_1484_11 = null;
+					break;
+				}
+				default : {
+					API = null;
+					API_1484_11 = null;
+				}
+			}
+		}
+		
+		function xSetSco2k4(){ 
+			xReset();
+			sc$("scoSubTitle").appendChild(document.createTextNode("Environnement SCORM 2004"));
+			sc$("btnSco2k4").className = "scorm_btnOn";
+			fApiSelected = "scorm2k4";
+		}
+		
+		function xSetSco12(){ 
+			xReset();
+			sc$("scoSubTitle").appendChild(document.createTextNode("Environnement SCORM 1.2"));
+			sc$("btnSco12").className = "scorm_btnOn";
+			fApiSelected = "scorm12";
+		}
+		
+		function xSetNoSco(){ 
+			xReset();
+			sc$("scoSubTitle").appendChild(document.createTextNode("Aucun contexte SCORM défini"));
+			sc$("btnNoSco").className = "scorm_btnOn";
+			fApiSelected = "";
+		}
+		
+		function xOverrideFields(pObj){
+			var vTextArea = sc$("iniScormDataJson");
+			var vCandidatesProps = JSON.parse(vTextArea.value);// {"cmi.scaled_passing_score":0.8};
+			for (vProp in vCandidatesProps) {
+				var vValue = vCandidatesProps[vProp];
+				var vFields = vProp.split(".");
+				var vCur = pObj;
+				var imax = vFields.length-1;
+				for(var i=0; i<imax; i++) {
+					var vF = vCur[vFields[i]];
+					if(vF == null) vCur = vCur[vFields[i]] = {}; else vCur = vF;
+				}
+				if( ! (vFields[imax] in vCur) || vCur[vFields[imax]] != vValue) {
+					vCur[vFields[imax]] = vValue;
+					this._Modif = true;
+				}
+			}
+		}
+		
+		function xListProperties(pObj){
+			var vRes = "";
+			var vProp = null;
+			for (vProp in pObj) {
+				try {
+					vRes += vProp +'(' + pObj[vProp]+ ')'+ "\n";
+				} catch(e){
+					vRes += vProp +' -> toString in error\n';
+				}
+			}
+			return vRes;
+		}
+		
+		function xCloneObj(pObj) {
+			if( pObj != null && typeof pObj == "object") {
+				var vNew = {};
+				for (var vK in pObj) vNew[vK] = xCloneObj(pObj[vK]);
+				return vNew;
+			} else return pObj;
+		}
+		
+		function logInfo(pText){
+			var vApi = API || API_1484_11;
+			if(vApi && vApi._LastError != 0) {
+				pText +="\n*** ERROR:" + vApi._LastError + " : " + (vApi.LMSGetDiagnostic ? vApi.LMSGetDiagnostic() : vApi.GetDiagnostic())+" ***";
+			}
+			if(window.console && console.log) console.log(pText);
+		}
+		//
+</script><script type="text/JavaScript">
+		//
+		function Imp_API12(pOwner) {
+			this._Fields = (pOwner && pOwner._Fields12) ? pOwner._Fields12 : {};
+			xOverrideFields(this._Fields);
+			this.fCurrentOwner = pOwner;
+		}
+		Imp_API12.prototype = {
+			LMSInitialize : function(p) {
+				this._LastError = 0;
+				logInfo("SCORM12 LMSInitialize()");
+				return "true";
+			},
+			
+			LMSFinish : function(p) {
+				this.LMSCommit("");
+				this.fCurrentOwner = null;
+				logInfo("SCORM12 LMSFinish()");
+				return "true";
+			},
+			
+			LMSGetValue : function(pKey) {
+				this._LastError = 0;
+				var vFields = pKey.split(".");
+				var vLen = vFields.length;
+				var vResult=null;
+				switch(vFields[vLen-1]) {
+					case "_version" : return "1.0";
+					case "_children" : {
+						vResult = this._children[vFields[vLen-2]] || "";
+						if( ! vResult) this._LastError = 301;
+						break;
+					}
+					case "_count" : {
+						--vLen;
+						var vCur = this._Fields;
+						for(var i=0; i < vLen; i++) {
+							var vF = vCur[vFields[i]];
+							if(vF == null) return 0;
+							vCur = vF;
+						}
+						var i = 0;
+						for(var vKey in vCur) i++;
+						vResult = i;
+						break;
+					}
+					default : {
+						var vCur = this._Fields;
+						for(var i=0; i < vLen; i++) {
+							var vF = vCur[vFields[i]];
+							if(vF == null) return null;
+							vCur = vF;
+						}
+						vResult = vCur;			
+					}
+				}
+				logInfo("SCORM12 LMSGetValue('"+pKey+"') -> "+vResult);
+				return vResult;
+			},
+			
+			LMSSetValue : function(pKey, pValue) {
+				this._LastError = 0;
+				var vFields = pKey.split(".");
+				var vCur = this._Fields;
+				var imax = vFields.length-1;
+				for(var i=0; i<imax; i++) {
+					var vF = vCur[vFields[i]];
+					if(vF == null) vCur = vCur[vFields[i]] = {}; else vCur = vF;
+				}
+				if( ! (vFields[imax] in vCur) || vCur[vFields[imax]] != pValue) {
+					vCur[vFields[imax]] = pValue;
+					this._Modif = true;
+				}
+				logInfo("SCORM12 LMSSetValue('"+pKey+"', '"+pValue+"')");
+				return "true";
+			},
+		
+			LMSCommit : function(p) {
+				try {
+					this._LastError = 0;
+					if(this._Modif && this.fCurrentOwner) {
+						this.fCurrentOwner._Fields12 = xCloneObj(this._Fields);
+						this._Modif = false;
+					}
+					logInfo("SCORM12 LMSCommit()");
+					return "true";
+				}catch(e){
+					this._LastError = 391;
+					logInfo("SCORM12 LMSCommit()");
+					return "false";
+				}
+			},
+			
+			LMSGetLastError : function() {
+				return this._LastError;
+			},
+			
+			LMSGetErrorString : function(pKeyError) {
+				if (!pKeyError) return "";
+				switch(pKeyError) {
+					case 0 : return "";
+					case 301 : return "Le modèle de données ne possède pas de fils.";
+					case 391 : return "Enregistrement des données impossible. Veuillez contacter votre administrateur.";//General Commit Failure
+				}
+				return "";
+			},
+			
+			LMSGetDiagnostic : function() {
+				return this.LMSGetErrorString(this._LastError);
+			},
+			
+			//interne
+			_LastError : 0,
+			_Fields : {},
+			_Modif : false,
+			_children : {
+				"comments_from_learner" : "comment,location,timestamp",
+				"comments_from_lms" : "comment,location,timestamp",
+				"interactions" : "id,type,objectives,timestamp,correct_responses,weighting,learner_response,result,latency,description",
+				"learner_preference" : "audio_level,language,delivery_speed,audio_captioning",
+				"objectives" : "id,score,success_status,completion_status,description",
+				"score" : "raw,min,max"
+			}
+			//
+		}
+</script><script type="text/JavaScript">
+		//
+		function Imp_API_1484_11 (pOwner) {
+			this._Fields = (pOwner && pOwner._Fields2k4) ? pOwner._Fields2k4 : {};
+			xOverrideFields(this._Fields);
+			this.fCurrentOwner = pOwner;
+		}
+		Imp_API_1484_11.prototype = {
+			Initialize : function(p) {
+				this._LastError = 0;
+				logInfo("SCORM2k4 Initialize()");
+				return "true";
+			},
+			
+			Terminate : function(p) {
+				this.Commit("");
+				this.fCurrentOwner = null;
+				logInfo("SCORM2k4 Terminate()");
+				return "true";
+			},
+			
+			GetValue : function(pKey) {
+				this._LastError = 0;
+				var vFields = pKey.split(".");
+				var vLen = vFields.length;
+				var vResult = null;
+				switch(vFields[vLen-1]) {
+					case "_version" : return "1.0";
+					case "_children" : {
+						vResult = this._children[vFields[vLen-2]] || "";
+						if( ! vResult) this._LastError = 301;
+						break;
+					}
+					case "_count" : {
+						--vLen;
+						var vCur = this._Fields;
+						for(var i=0; i < vLen; i++) {
+							var vF = vCur[vFields[i]];
+							if(vF == null) return 0;
+							vCur = vF;
+						}
+						var i = 0;
+						for(var vKey in vCur) i++;
+						vResult = i;
+						break;
+					}
+					default : {
+						var vCur = this._Fields;
+						for(var i=0; i < vLen; i++) {
+							var vF = vCur[vFields[i]];
+							if(vF == null) return null;
+							vCur = vF;
+						}
+						vResult = vCur;
+					}
+				}
+				logInfo("SCORM2k4 GetValue('"+pKey+"') -> "+vResult);
+				return vResult;
+			},
+			
+			SetValue : function(pKey, pValue) {
+				this._LastError = 0;
+				var vFields = pKey.split(".");
+				var vCur = this._Fields;
+				var imax = vFields.length-1;
+				for(var i=0; i<imax; i++) {
+					var vF = vCur[vFields[i]];
+					if(vF == null) vCur = vCur[vFields[i]] = {}; else vCur = vF;
+				}
+				if( ! (vFields[imax] in vCur) || vCur[vFields[imax]] != pValue) {
+					vCur[vFields[imax]] = pValue;
+					this._Modif = true;
+				}
+				logInfo("SCORM2k4 SetValue('"+pKey+"', '"+pValue+"')");
+				return "true";
+			},
+		
+			Commit : function(p) {
+				try {
+					this._LastError = 0;
+					if(this._Modif && this.fCurrentOwner) {
+						this.fCurrentOwner._Fields2k4 = xCloneObj(this._Fields);
+						this._Modif = false;
+					}
+					logInfo("SCORM2k4 Commit()");
+					return "true";
+				}catch(e){
+					this._LastError = 391;
+					logInfo("SCORM2k4 Commit()");
+					return "false";
+				}
+			},
+			
+			GetLastError : function() {
+				return this._LastError;
+			},
+			
+			GetErrorString : function(pKeyError) {
+				if (!pKeyError) return "";
+				switch(pKeyError) {
+					case 0 : return "";
+					case 301 : return "Le modèle de données ne possède pas de fils.";
+					case 391 : return "Enregistrement des données impossible. Veuillez contacter votre administrateur.";//General Commit Failure
+				}
+				return "";
+			},
+			
+			GetDiagnostic : function() {
+				return this.GetErrorString(this._LastError);
+			},
+			
+			//interne
+			_LastError : 0,
+			_Fields : {},
+			_Modif : false,
+			_children : {
+				"comments_from_learner" : "comment,location,timestamp",
+				"comments_from_lms" : "comment,location,timestamp",
+				"interactions" : "id,type,objectives,timestamp,correct_responses,weighting,learner_response,result,latency,description",
+				"learner_preference" : "audio_level,language,delivery_speed,audio_captioning",
+				"objectives" : "id,score,success_status,completion_status,description",
+				"score" : "scaled,raw,min,max"
+			}
+		//
+		}
+</script>
+</head>
+<body onload="scOnLoad();" onunload="scOnUnload();">
+<div style="position:absolute; width:30%; height:100%; overflow: auto; background-color:#777777;" id="scormPnl">
+<div style="padding:3px;">
+<div style="padding:3px; text-align:center;">
+<div style="color:#EEEEEE; padding:2px;">OCOM M140.01 Lancer une fus&eacute;e &agrave; eau</div>
+<a id="btnNoSco" class="scorm_btn" role="button" href="#" onclick="xSetNoSco(); return false;" style="text-decoration: line-through;">SCORM</a><a id="btnSco12" class="scorm_btn" role="button" href="#" onclick="xSetSco12(); return false;" style="">SCORM 1.2</a><a id="btnSco2k4" class="scorm_btn" role="button" href="#" onclick="xSetSco2k4(); return false;" style="">SCORM 2004</a>
+<br>
+<span id="scoSubTitle" style="font-style:italic;font-size:1em; color:#EEEEEE;">Aucun contexte SCORM d&eacute;fini</span>
+</div>
+<div id="outline" style="font-size:0.8em; background-color:#FFFFFF; padding: 2px 5px;; border: 2px solid #32190C; margin: 10px 0px;">
+<ul class="prv">
+<li class="prv_li">
+<a role="button" href="#" onclick="showItem('co/ctx_item-a.html', this, event);return false;" title="shift-click pour ouvrir en 'popup'"><span>OCOM M140.01 Lancer une fus&eacute;e &agrave; eau</span></a>
+</li>
+</ul>
+</div>
+<div style="padding:3px; text-align:center;">
+<a id="btnDisplayData" class="scorm_btn" role="button" href="#" onclick="showCurrentData(); return false;">Voir les donn&eacute;es SCORM...</a>
+</div>
+<div id="displayDataFrm" style="display: none; border: 2px solid #32190C; background-color:#F7E7DD; margin: 10px 0px;">
+<div style="padding:3px; text-align:center;">
+<a id="btnDisplayData" class="scorm_btn" role="button" href="#" onclick="sc$('displayDataFrm').style.display='none'; return false;">Masquer</a>
+</div>
+<div id="displayDataCt" style="padding: 5px; color:#32190C; border-top: 1px solid #32190C; overflow: auto;"></div>
+<div style="font-size:0.8em; padding: 5px; color:#32190C; border-top: 1px solid #32190C;">
+<div style="font-style:italic">Initialisation du contexte scorm (JSON)</div>
+<textarea style="width:98%; height:1em;" id="iniScormDataJson">{}</textarea>
+</div>
+</div>
+<div style="text-align:right;color:#AAAAAA;font-size:0.8em; font-style:italic;padding:3px;">SCENARIviewer SCORM</div>
+</div>
+</div>
+<a id="btnScormPnl" class="btnCls" onclick="xToggleScormPnl();return false;" role="button" href="#" title="Masquer le panneau SCORM"><span>&lt;</span></a>
+<div class="pnl_on" id="scormCo">
+<iframe id="mainFrame" name="mainFrame" style="border:none;" width="100%" height="100%" src="" marginwidth="0" marginheight="0" scrolling="auto" frameborder="0" allowfullscreen="true"></iframe>
+</div>
+</body>
+</html>

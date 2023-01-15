@@ -1,0 +1,16 @@
+
+:root{
+  --fontStyle: 'Source Sans Pro';
+	--fontSize: 11pt; 
+  --borderGradient: 0%; /* Bordures dégradés - 0% : avec; 100% : sans */
+  --borderWidth: 1pt;
+  --contentFG: #333333;
+  --contentFGalpha: #333333aa;
+  --contentEmp: #434e52;
+	--accentDarkBG: #434e52;
+  --accentDarkFG: white;
+  --accentLightBG: #e0ecec;
+  --pBkOthers: #507c7c;
+  --pBkWarning: #D51921;
+  --pBkBasic: #9F590E;
+}

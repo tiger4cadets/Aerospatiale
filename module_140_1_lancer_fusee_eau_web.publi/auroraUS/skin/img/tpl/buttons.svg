@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   id="svg2"
+   height="350.00061"
+   width="50.000072"
+   version="1.1">
+  <defs
+     id="defs4" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     transform="translate(-680.27394,-411.68824)"
+     id="previousPage">
+    <path
+       d="m -895.24767,446.69495 a 18.182745,18.182745 0 1 1 -36.36549,0 18.182745,18.182745 0 1 1 36.36549,0 z"
+       transform="matrix(1.3749299,0,0,1.3749299,1961.1768,-177.486)"
+       id="path3010"
+       style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#e0ecec;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;marker:none;enable-background:accumulate" />
+    <path
+       d="m 710.36367,423.76859 -10.17912,10.17911 -2.7406,2.74053 2.7406,2.74053 10.17912,10.17912 2.74046,-2.69704 -10.17897,-10.22261 10.17897,-10.17911 z"
+       id="rect3012"
+       style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#434e52;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;marker:none;enable-background:accumulate" />
+  </g>
+  <g
+     transform="matrix(-1,0,0,1,730.27401,-368.76166)"
+     id="nextPage">
+    <path
+       d="m -895.24767,446.69495 a 18.182745,18.182745 0 1 1 -36.36549,0 18.182745,18.182745 0 1 1 36.36549,0 z"
+       transform="matrix(1.3749299,0,0,1.3749299,1961.1768,-120.41238)"
+       id="path3789"
+       style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#e0ecec;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;marker:none;enable-background:accumulate" />
+    <path
+       d="m 710.36367,480.84221 -10.17912,10.17911 -2.7406,2.74053 2.7406,2.74053 10.17912,10.17912 2.74046,-2.69704 -10.17897,-10.22261 10.17897,-10.17911 z"
+       id="path3791"
+       style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#434e52;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;marker:none;enable-background:accumulate" />
+  </g>
+  <g
+     transform="translate(-767.49983,-252.75131)"
+     id="fullScreen">
+    <path
+       style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#e0ecec;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.3749299;marker:none;enable-background:accumulate"
+       id="path3803"
+       d="m 767.49989,477.75171 a 25,25 0 1 0 50,0 25,25 0 1 0 -50,0 z" />
+    <path
+       d="m 807.49994,492.75171 v -4 -8 l -4,4 -4,-4 -4,4 4,4 -4,4 h 8 z m -30,0 v -4 -8 l 4,4 4,-4 4,4 -4,4 4,4 h -8 z m 30,-30 v 4 8 l -4,-4 -4,4 -4,-4 4,-4 -4,-4 h 8 z m -30,0 v 4 8 l 4,-4 4,4 4,-4 -4,-4 4,-4 h -8 z"
+       style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#434e52;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;marker:none;enable-background:accumulate"
+       id="path3822" />
+  </g>
+  <g
+     transform="translate(-676.73843,-311.19022)"
+     id="restore">
+    <path
+       style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#e0ecec;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.3749299;marker:none;enable-background:accumulate"
+       id="path3836"
+       d="m 676.73849,636.19082 a 25,25 0 1 0 50,0 25,25 0 1 0 -50,0 z" />
+    <path
+       d="m 704.73851,639.19082 v 4 8 l 4,-4 4,4 4,-4 -4,-4 4,-4 h -8 z m -6,0 v 4 8 l -4,-4 -4,4 -4,-4 4,-4 -4,-4 h 8 z m 6,-6 v -4 -8 l 4,4 4,-4 4,4 -4,4 4,4 h -8 z m -6,0 v -4 -8 l -4,4 -4,-4 -4,4 4,4 -4,4 h 8 z"
+       style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#434e52;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;marker:none;enable-background:accumulate"
+       id="path3844" />
+  </g>
+</svg>

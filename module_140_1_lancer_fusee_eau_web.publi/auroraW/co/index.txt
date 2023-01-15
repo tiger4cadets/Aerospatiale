@@ -1,0 +1,238 @@
+{"c":"co/activiteapprentissage.html","b":"co/module_140_1_lancer_fusee_eau_2.html","h":"co/court_q3.html","i":"co/grain_02.html","e":"co/grain.html","a":"co/module_140_1_lancer_fusee_eau_1.html","g":"co/court_q2.html","d":"co/module_140_1_lancer_fusee_eau_3.html","f":"co/court_q1.html"}
+["3","2","1"]
+{"wordPattern":"[^\\u0000-/:-@\\[-`{-\\u00A0]+(?:[-][^\\u0000-/:-@\\[-`{-\\u00A0]+)?|\\d+(?:[,.]\\d+)?","filters":[{"type":"excludeShortWords","forWords":"\\d+","min":1},{"type":"excludeShortWords","forWords":"\\D+","min":3},{"type":"cutLongWords","max":20},{"type":"lowerCase"},{"type":"ignoreWords","words":{"notre":1,"vont":1,"fait":1,"avoir":1,"mon":1,"être":1,"des":1,"mot":1,"sont":1,"les":1,"avant":1,"vous":1,"peu":1,"il":1,"tes":1,"dans":1,"nous":1,"tandis":1,"au":1,"tellement":1,"moins":1,"force":1,"je":1,"même":1,"droite":1,"dos":1,"sien":1,"parole":1,"sa":1,"elle":1,"ces":1,"sur":1,"ton":1,"si":1,"ça":1,"quand":1,"encore":1,"mine":1,"peut":1,"ses":1,"dedans":1,"ce":1,"ci":1,"quelles":1,"quels":1,"haut":1,"où":1,"alors":1,"tout":1,"ta":1,"tous":1,"chaque":1,"la":1,"état":1,"cela":1,"le":1,"sujet":1,"autre":1,"comme":1,"font":1,"tu":1,"fois":1,"est":1,"nouveaux":1,"mais":1,"ici":1,"tels":1,"nommés":1,"du":1,"maintenant":1,"son":1,"ma":1,"depuis":1,"soyez":1,"parce":1,"été":1,"par":1,"seulement":1,"voie":1,"pas":1,"pourquoi":1,"sans":1,"essai":1,"en":1,"ceux":1,"donc":1,"et":1,"début":1,"eu":1,"ils":1,"voient":1,"hors":1,"ni":1,"étions":1,"avec":1,"très":1,"vu":1,"bon":1,"que":1,"faites":1,"qui":1,"plupart":1,"deux":1,"aucuns":1,"sous":1,"elles":1,"devrait":1,"car":1,"aussi":1,"doit":1,"mes":1,"leur":1,"valeur":1,"ou":1,"pour":1,"trop":1,"pièce":1,"dehors":1,"là":1,"juste":1,"quelle":1,"comment":1,"personnes":1,"votre":1,"quel":1,"étaient":1}},{"type":"filterAccentedLatinLetters"}]}
+trois	c.001	e.010
+1	e.001
+2	e.001
+3	e.001
+proportionnelle	e.003
+cec	b.001
+lire	i.001
+interessante	i.001
+classique	e.001
+aerospatial	a.100	b.100	d.100
+objectifs	a.010
+egal	e.001
+boisson	i.006
+aire	i.002
+notes	a.001	b.001	c.001	d.001	e.001	f.001	g.001	h.001	i.001
+cinq	i.002
+mesures	i.001
+lancements	i.001
+vol	d.001
+pe2	c.001	i.010
+pe1	c.001	e.010
+uniforme	e.001	f.001
+activites	b.001
+gazeuse	i.006
+applique	e.001
+egalement	e.001
+nettoyer	i.001
+moteur	e.002
+explique	e.002	g.001
+newton-metres	e.001
+profonde	i.001
+agisse	e.001	f.001
+lancement	b.001	d.001	e.001	i.017
+lancees	i.001
+air	e.001	i.001
+inertie	e.012
+question	c.003	f.010	g.010	h.010
+mouvement	b.001	c.004	d.001	e.074	f.012	g.011	h.011	i.002
+tache	i.001
+correspond	e.001
+lunettes	i.001
+deuxieme	c.001	e.031	g.012
+objet	e.006	g.001
+condition	i.001
+apprenant	a.001
+lancer	c.001	i.014
+buse	e.001
+retrouver	i.001
+masse	e.005
+direction	e.001
+changement	e.001
+objectif	i.001
+favorables	i.001
+po2	i.001
+compter	i.002
+quelque	e.001	f.001
+vide	i.002
+moment	i.001
+mesure	a.001	e.001
+cadets	b.003	i.004
+demander	i.003
+peuvent	i.001
+tour	i.004
+principe	e.011
+miniature	i.010
+gravite	e.001	i.001
+exterieure	i.001
+continue	e.001
+poussee	e.001
+pompe	i.002
+bonne	i.001
+expliquer	c.001	e.011	i.001
+designe	e.001
+aux	b.001	i.004
+quoi	b.001
+newton	b.001	c.004	d.001	e.064	f.012	g.012	h.012	i.002
+gymnase	i.001
+conclusion	d.010
+systemes	e.001
+discuter	c.001	e.010	i.001
+premiere	c.001	e.012	f.012	i.001
+pression	i.002
+propulsant	e.001
+facon	i.001
+loi	c.003	e.065	f.012	g.012	h.012	i.001
+differences	i.001
+lecon	a.001	b.002
+principes	e.001
+methode	i.010
+officiers	b.001
+lancant	b.001
+deviennent	e.001
+tire	g.001
+propulseur	e.002
+permettant	i.001
+persevere	e.001	f.001
+totalite	d.001
+seule	i.001
+profil	d.001
+corps	e.001	f.001
+produire	e.001
+correction	f.001	g.001	h.001
+escadron	b.001
+rebours	i.002
+introduction	b.010
+ligne	e.001	f.001
+exterieur	i.001
+aucune	i.001
+attention	i.010
+lui	e.001	f.001
+certaine	e.001
+facile	i.001
+fin	a.001	b.001
+enonce	e.001	f.001
+equivalente	e.001	h.001
+tiers	i.001
+velo	i.001
+systeme	i.002
+deroulement	i.001
+acceleration	e.003
+certaines	e.001
+etapes	i.010
+gouvernent	d.001
+appliquent	d.001
+lequel	e.001	f.001
+apparente	i.001
+pendant	b.001	d.001	e.001
+litres	i.003
+mettront	b.001
+partie	e.001
+presente	a.001	b.002
+une	a.001	b.002	c.001	d.001	e.004	h.001	i.026
+fusee	a.201	b.202	c.001	d.201	e.005	i.025
+partir	i.002
+resistantes	i.001
+fournir	i.001
+vitesse	e.003	g.001
+nouveau	i.001
+action	e.001	h.001
+plancher	i.001
+bouteilles	i.002
+oublier	i.001
+repos	e.001	f.001	i.001
+mecanique	e.001
+appliquee	e.003	i.001
+demontrer	i.001
+dynamique	i.001
+appliquer	i.002
+change	e.004	g.001
+exercice	c.003
+entre	e.001	i.001
+physiques	e.002
+utilisees	e.001	i.001
+lance	a.001	b.001
+egratignure	i.001
+plus	e.001
+diminue	e.001
+monter	i.001
+demontre	i.001
+pratique	b.001
+decrivent	e.001
+pouvant	e.001
+inversement	e.001
+utiliser	i.001
+comprime	i.001
+plusieurs	e.001	i.001
+lois	b.001	c.001	d.002	e.011	i.001
+celui-ci	e.001	g.001
+opposee	e.002	h.001
+nature	e.001	h.001
+brulent	e.001
+friction	e.001
+concernes	e.001
+troisieme	c.001	e.021	h.012
+10	i.001
+mission	i.001
+exemple	e.030
+installer	i.002
+conditions	i.001
+20	i.001
+objets	e.002
+ressources	i.001
+bouteille	i.007
+reaction	e.001	h.001
+interieur	i.001
+celle-ci	d.001	i.001
+legeres	e.001
+contraigne	e.001	f.001
+pressurise	i.001
+50	i.001
+paire	i.001
+pousse	g.001
+remplir	i.001
+forces	e.003
+60	i.001
+demontrera	b.001
+changer	e.002	f.001
+definition	e.031
+gaz	e.001
+externe	e.001
+elimine	e.001
+formule	e.001
+base	e.001
+trouve	e.001	f.001
+reprises	i.001
+relation	e.001
+recommencer	f.001	g.001	h.001
+entoure	d.001
+interne	e.001
+resistance	e.001
+externes	e.001
+stipule	e.001	h.001
+meteorologiques	i.001
+cadet	b.001	i.001
+eau	a.101	b.102	c.001	d.100	i.017
+existe	e.001	h.001
+site	b.001	i.001
+assez	i.001
+fusees	e.001	i.001
+accelere	e.002
+voici	e.002
+preferable	i.001
+apres	d.001
+sens	e.001
+breffage	i.001
+instructeur	i.001
+activite	i.001
+securite	i.002
+defectuosite	i.001
+toute	e.001	h.001
+fondamental	e.010
+cette	e.002
+fuseologie	d.001
+quelle	g.001
+agit	e.001

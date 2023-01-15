@@ -1,0 +1,269 @@
+{"d":"co/grain_04_equilibre_forces.html","b":"co/grain_04_structure_commandes_vol.html","e":"co/grain_04_helice.html","f":"co/grain_04_centre_gravite_cg.html","c":"co/grain_04_forces_prsences.html","a":"co/activiteapprentissage_03.html"}
+["2","1"]
+{"wordPattern":"[^\\u0000-/:-@\\[-`{-\\u00A0]+(?:[-][^\\u0000-/:-@\\[-`{-\\u00A0]+)?|\\d+(?:[,.]\\d+)?","filters":[{"type":"excludeShortWords","forWords":"\\d+","min":1},{"type":"excludeShortWords","forWords":"\\D+","min":3},{"type":"cutLongWords","max":20},{"type":"lowerCase"},{"type":"ignoreWords","words":{"notre":1,"vont":1,"fait":1,"avoir":1,"mon":1,"être":1,"des":1,"mot":1,"sont":1,"les":1,"avant":1,"vous":1,"peu":1,"il":1,"tes":1,"dans":1,"nous":1,"tandis":1,"au":1,"tellement":1,"moins":1,"force":1,"je":1,"même":1,"droite":1,"dos":1,"sien":1,"parole":1,"sa":1,"elle":1,"ces":1,"sur":1,"ton":1,"si":1,"ça":1,"quand":1,"encore":1,"mine":1,"peut":1,"ses":1,"dedans":1,"ce":1,"ci":1,"quelles":1,"quels":1,"haut":1,"où":1,"alors":1,"tout":1,"ta":1,"tous":1,"chaque":1,"la":1,"état":1,"cela":1,"le":1,"sujet":1,"autre":1,"comme":1,"font":1,"tu":1,"fois":1,"est":1,"nouveaux":1,"mais":1,"ici":1,"tels":1,"nommés":1,"du":1,"maintenant":1,"son":1,"ma":1,"depuis":1,"soyez":1,"parce":1,"été":1,"par":1,"seulement":1,"voie":1,"pas":1,"pourquoi":1,"sans":1,"essai":1,"en":1,"ceux":1,"donc":1,"et":1,"début":1,"eu":1,"ils":1,"voient":1,"hors":1,"ni":1,"étions":1,"avec":1,"très":1,"vu":1,"bon":1,"que":1,"faites":1,"qui":1,"plupart":1,"deux":1,"aucuns":1,"sous":1,"elles":1,"devrait":1,"car":1,"aussi":1,"doit":1,"mes":1,"leur":1,"valeur":1,"ou":1,"pour":1,"trop":1,"pièce":1,"dehors":1,"là":1,"juste":1,"quelle":1,"comment":1,"personnes":1,"votre":1,"quel":1,"étaient":1}},{"type":"filterAccentedLatinLetters"}]}
+au-dessus	d.01
+faire	e.01
+tailles	e.01
+utilise	d.01
+est-a	d.01
+varie	d.02
+0	c.01
+1	a.05	b.20	c.10	d.10	f.10
+2	a.05	b.10	c.21	d.10	f.10
+3	a.01	d.10
+4	a.01	f.10
+sera	d.01	f.01
+5	d.02
+6	e.01
+remarque	d.20	f.30
+cet	f.01
+aise	f.01
+procedures	f.01
+positives	d.01
+sortez	c.01
+violent	f.01
+noter	e.01
+couple	e.02
+notes	a.01	b.01	c.01	d.01	e.01	f.01
+dessus	c.01
+autour	d.01
+tests	f.01
+piquant	c.01
+joueur	f.01
+vol	a.01	b.12	d.12	e.01	f.01
+engine	f.02
+pouvez	f.03
+carburant	d.01
+with	f.01
+palier	d.10
+basse	e.01
+helicehelices	e.01
+10x6	e.01
+vioux	e.01
+trouver	f.11
+moteur	e.04
+convertit	e.01
+surtout	d.01
+volkann	f.01
+air	d.06
+cree	c.01
+fenetre	c.01
+reste	d.02
+traduite	d.01
+profondeur	c.01
+php	e.01
+ailes	d.01
+com	f.02
+simplifier	c.01
+stock	f.06
+etes	f.01
+instable	f.01
+loppose	d.01
+exactement	d.01
+pointe	e.01
+sortis	d.01
+chose	c.01
+aircraft	f.01
+accelerations	d.01
+equilibree	f.01
+poids	c.21	d.03	f.02
+arriere	c.02	f.02
+390081215	f.01
+modele	e.02
+views-small	f.01
+principalement	d.01	e.01
+portance	c.10	d.02
+helice	a.01	d.03	e.15
+sinon	f.01
+rapport	e.01
+soulevez	f.01
+montees	e.01
+cest	c.01
+peuvent	e.01
+voler	d.02
+augmentera	e.02
+gravite	f.52
+exprimees	e.01
+reculer	f.01
+puissance	e.01
+with-single	f.01
+ralentir	d.01
+equilibrees	d.01
+non	d.01
+10kgs	c.01
+rotation	e.01
+gravity	f.01
+rendant	f.01
+forums	f.01
+lavion	c.05
+images	f.02
+aeromodlisme	a.10
+presentant	d.02
+pese	c.01	d.01
+light	f.01
+gravitee	a.01	f.10
+dangereux	f.01
+pouces	e.03
+formation	f.01
+methode	f.30
+rendra	f.01
+rendre	f.01
+tire	c.04
+centre	a.01	f.63
+small	f.01
+generalement	f.02
+donne	f.01
+commandes	a.01	b.12
+ainsi	d.01
+lavionnaire	e.01
+profil	d.01
+important	e.01
+produira	d.01
+altitude	d.01
+endroit	f.01
+tirant	c.01
+point	f.01
+presences	a.01	c.12	d.02
+geometrique	e.01
+produite	d.01
+plane	f.01
+facile	f.01
+inchange	d.01
+diametre	d.01	e.04
+laile	c.01
+seront	f.01
+faible	e.01
+lorsque	c.01	d.01
+rapidement	f.01
+icon	f.01
+volets	d.01
+legerement	f.01
+charge	c.02	d.01
+diminuera	e.02
+adobe	f.05
+consomme	d.01
+positifs	c.01
+augmente	d.02
+laspiration	c.01
+soumis	c.01
+tete	f.01
+test	f.10
+aspiration	c.01	d.01
+fonction	d.03
+voiture	c.01
+effectues	f.01
+effectuer	f.10
+trainee	c.20	d.04
+augmentation	d.01
+multiplie	c.01
+toutes	d.01
+lhelice	c.01
+petit	e.01
+equilibre	a.01	d.10	f.01
+views	f.01
+notice	f.11
+packaging	f.01
+grand	e.02
+une	d.04	e.02	f.01
+fournit	e.01
+entrainant	d.01
+ajuster	e.01	f.11
+vitesse	d.03	e.03
+caracterisee	e.01
+vers	c.02
+gouvernail	d.01
+https	e.01	f.02
+surface	d.02
+propulsion	e.01
+appele	f.01
+facteur	c.02	d.01
+in-different	f.01
+roulant	c.01
+decrochage	f.01
+dire	d.01
+angle	d.01
+mal	f.10
+manoeuvrer	f.02
+propeller-plane	f.01
+lavant	c.01
+plutot	f.01
+traction	c.10	d.04
+main	c.02
+www	e.01
+different	f.01
+entre	e.01	f.01
+repartition	f.01
+packaging-symbol	f.01
+atterrira	f.01
+plus	e.02	f.05
+diminue	d.01
+position	f.01
+informations	b.01	c.01	d.01	e.02	f.01
+centrage	f.11
+monter	d.01
+pratique	d.01
+nombre	d.01
+inversement	e.01
+plusieurs	e.01
+structure	a.01	b.12
+dun	e.01
+depend	d.02
+gravity-icon	f.01
+10	d.02	e.01
+exemple	c.60	d.10	e.01
+dependra	e.01
+avion	a.10	c.02	d.05	e.06	f.18
+20	c.01
+vecteur	f.02
+modifiant	e.01
+1g	c.01
+propeller	f.01
+celle-ci	d.01
+reduit	e.02
+409518598	f.01
+single	f.01
+2g	c.01
+precisement	f.01
+symbol	f.01
+lopposee	d.01
+circule	d.01
+ajuste	f.10
+centre-of	f.01
+difficile	f.01
+forces	a.02	c.12	d.13
+specifiques	f.01
+helices	e.02
+definition	c.40	d.10	f.10
+celle	d.02
+ajoutant	f.01
+choix	e.01
+type	e.01
+beaucoup	f.01
+compatible	e.01
+fabricant	e.01
+light-aircraft	f.01
+negatives	d.01
+resistance	d.05
+portabce	d.01
+lors	f.01
+composant	e.01
+capacite	d.02
+precise	f.01
+attaque	d.01
+conservateur	f.01
+queue	f.01
+dimensions	e.01
+egales	d.01
+aile	d.02
+tours	d.01
+pesera	c.02
+constante	d.02
+doivent	f.01
+10kg	c.01
+contraire	c.10
+indiquee	f.01
+manuel	f.11
+avancer	e.01
+plage	e.01
+apprises	f.01
+performance	e.01
